@@ -61,7 +61,7 @@
 
                                         <select name="outcome_area" id="outcome_area" class="form-control"
                                             style="color:dimgray;" required>
-                                            <option selected>Select ...</option>
+                                            <option selected disabled></option>
                                             <option
                                                 value="ACCOUNTABLE, TRANSPARENT, PARTICIPATIVE, AND EFFECTIVE LOCAL GOVERNANCE">
                                                 ACCOUNTABLE, TRANSPARENT, PARTICIPATIVE, AND EFFECTIVE LOCAL
@@ -90,9 +90,9 @@
                                             <label for="" style="color:dimgray">Program</label>
                                             <select name="program_id" id="program_id" class="form-control"
                                                 style="color:dimgray;" required>
-                                                <option selected>Select ...</option>
+                                                <option selected disabled></option>
                                                 @foreach ($programs as $prog)
-                                                    <option value="{{ $prog->id }}">{{ $prog->title }}</option>
+                                                    <option value="{{ $prog->id }}">{{ $prog->title  ?? 'None'}}</option>
                                                 @endforeach
 
                                             </select>
@@ -275,10 +275,10 @@
                                                                 <select name="program_id" id="program_id"
                                                                     class="form-control" style="color:dimgray;" required>
                                                                     <option value="{{ $dw->program_id }}" selected>
-                                                                        {{ $dw->program->title }}</option>
+                                                                        {{ $dw->program->title ?? 'None' }}</option>
                                                                     @foreach ($programs as $prog)
                                                                         <option value="{{ $prog->id }}">
-                                                                            {{ $prog->title }}</option>
+                                                                            {{ $prog->title ?? 'None'}}</option>
                                                                     @endforeach
 
                                                                 </select>
@@ -295,7 +295,7 @@
                                                             <div class="form-group">
                                                                 <label for="" style="color:dimgray">Title:</label>
                                                                 <input type="text" class="form-control" name="title"
-                                                                    value="{{ $dw->title }}" required>
+                                                                    value="{{ $dw->title ?? 'None'}}" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">

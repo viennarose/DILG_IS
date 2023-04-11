@@ -23,7 +23,7 @@
                                 <span class="fas fa-search"></span>
                             </button>
                         </span>
-                       
+
                     </div>
                 </div>
                 <div class="input-group d-flex mx-auto mt-3 col-md-3">
@@ -34,10 +34,11 @@
                             </button>
                         </span>
                     </a>
+
                     <select name="program_id" id="program_id" class="form-control">
                         <option value="all">Search by Program</option>
                         @foreach ($programs as $prog )
-                            <option value="{{$prog->id}}" {{ Request::get('program_id') == 'program_id' ? 'selected' : '' }}>{{$prog->title}}</option>
+                            <option value="{{$prog->id}}" {{ Request::get('program_id') == 'program_id' ? 'selected' : '' }}>{{$prog->title ?? 'None'}}</option>
                         @endforeach
 
                     </select>
@@ -94,7 +95,7 @@
 
                         <div class="card-body">
                             <p class="text-wrap" style="font-weight: 400; font-size: 18px;">Program: <span class="text-wrap"
-                                    style="font-size: 18px; font-weight: 500;">{{ $dw->program->title }}</span></p>
+                                    style="font-size: 18px; font-weight: 500;">{{ $dw->program->title ?? 'None' }}</span></p>
                             <p class="text-wrap" style="font-weight: 400; font-size: 18px;">Outcome Area: <span
                                     class="text-wrap"
                                     style="font-size: 18px; font-weight: 500;">{{ $dw->outcome_area }}</span></p>
